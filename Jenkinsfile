@@ -32,7 +32,7 @@ pipeline {
 }
 post {
         always {
-            archiveArtifacts artifacts: 'Ganesha/Ganesha/bin/Release/netcoreapp3.1/win-x64/*', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'Ganesha/Ganesha/bin/Release/netcoreapp3.1/win-x64/publish/*', onlyIfSuccessful: true
         }
     }
 }
