@@ -10,7 +10,6 @@ pipeline {
   stage('Restore PACKAGES') {
    steps {
     dir('Ganesha') {
-      sh "ls"
       sh "dotnet restore"
     }
    }
@@ -25,7 +24,7 @@ pipeline {
   stage('Build') {
     steps {
       dir('Ganesha') {
-      sh 'dotnet build --configuration Release'
+      sh 'dotnet publish -c Release'
       }
     }
   }
