@@ -24,9 +24,14 @@ pipeline {
   stage('Build') {
     steps {
       dir('Ganesha') {
-      sh 'dotnet publish -c Release'
+      sh 'dotnet publish -c release -r ubuntu.20.04-x64 --self-contained true'
       }
     }
   }
 }
+post {
+        always {
+            archiveArtifacts artifacts: '**/*', onlyIfSuccessful: true
+        }
+    }
 }
