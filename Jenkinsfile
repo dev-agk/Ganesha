@@ -31,7 +31,7 @@ pipeline {
 }
 post {
         always {
-            archiveArtifacts artifacts: './Ganesha/Ganesha/bin/Release/netcoreapp3.1/ubuntu.20.04-x64/*', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'Ganesha/Ganesha/bin/Release/netcoreapp3.1/ubuntu.20.04-x64/*', onlyIfSuccessful: true
         }
     }
 }
