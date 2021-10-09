@@ -24,14 +24,15 @@ pipeline {
   stage('Build') {
     steps {
       dir('Ganesha') {
-      sh 'dotnet publish -c release -r ubuntu.20.04-x64 --self-contained true'
+      sh 'dotnet publish -c release -r ganesha-ubuntu --self-contained true'
+      sh 'dotnet publish -c release -r  ganesha-windows --self-contained true'    
       }
     }
   }
 }
 post {
         always {
-            archiveArtifacts artifacts: 'Ganesha/Ganesha/bin/Release/netcoreapp3.1/ubuntu.20.04-x64/*', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'Ganesha/Ganesha/bin/Release/netcoreapp3.1/ganesha-*/', onlyIfSuccessful: true
         }
     }
 }
