@@ -5,3 +5,6 @@ trying luck with jenkins web hook
 -> replacing bat with sh. -> as I am deploying to an ubuntu server using a shell, if deploying toa  windows server , can use bat
 -> checking jenkins directory
 -> adding timeout
+
+
+-> for service creation and visudo refer https://faun.pub/net-core-projects-ci-cd-with-jenkins-ubuntu-and-nginx-642aa9d272c9

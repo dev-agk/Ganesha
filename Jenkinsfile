@@ -34,7 +34,7 @@ pipeline {
       dir('Ganesha') {
       sh 'sudo systemctl stop ganesha.service'
       sh 'sudo service nginx stop'
-      //sh 'dotnet publish --configuration release'
+      //sh 'dotnet publish --configuration release' -> run this if run time is installed
       sh 'sudo systemctl start ganesha.service'   
       sh 'sudo service nginx start'    
       }
