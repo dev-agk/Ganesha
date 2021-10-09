@@ -6,21 +6,25 @@ pipeline {
  stages {
   stage('Restore PACKAGES') {
    steps {
-    sh "ls"
-    sh "cd Ganesha/"
-    sh "ls"
-    sh "dotnet restore"
+    dir('Ganesha') {
+      sh "ls"
+      sh "dotnet restore"
+    }
    }
   }
   stage('Clean') {
    steps {
-    sh 'dotnet clean'
+    dir('Ganesha') {
+      sh 'dotnet clean'
+    }
    }
   }
   stage('Build') {
-   steps {
-    sh 'dotnet build --configuration Release'
-   }
+    steps {
+      dir('Ganesha') {
+      sh 'dotnet build --configuration Release'
+      }
+    }
   }
- }
+}
 }
