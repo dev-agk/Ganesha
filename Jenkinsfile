@@ -29,6 +29,17 @@ pipeline {
       }
     }
   }
+  stage('deploy') {
+    steps {
+      dir('Ganesha') {
+      sh 'sudo systemctl stop ganesha.service'
+      sh 'sudo service nginx stop'
+      //sh 'dotnet publish --configuration release'
+      sh 'sudo systemctl start ganesha.service'   
+      sh 'sudo service nginx start'    
+      }
+    }
+  }
 }
 post {
         always {
