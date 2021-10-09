@@ -31,7 +31,7 @@ pipeline {
 }
 post {
         always {
-            archiveArtifacts artifacts: '**/*', onlyIfSuccessful: true
+            archiveArtifacts artifacts: '**/publish', onlyIfSuccessful: true
         }
     }
 }
