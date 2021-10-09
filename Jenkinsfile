@@ -1,5 +1,8 @@
 pipeline {
  agent any
+  options {
+    timeout(time: 15, unit: 'MINUTES') 
+  }
  environment {
   dotnet = '/usr/bin/dotnet.exe'
  }
