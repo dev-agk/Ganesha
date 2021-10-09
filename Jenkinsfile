@@ -6,7 +6,10 @@ pipeline {
  stages {
   stage('Restore PACKAGES') {
    steps {
-    sh "dotnet restore"
+    sh "ls -la"
+   }
+   steps {
+    sh "cd Ganesha && dotnet restore"
    }
   }
   stage('Clean') {
