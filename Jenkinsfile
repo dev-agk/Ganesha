@@ -8,6 +8,7 @@ pipeline {
    steps {
     sh "ls"
     sh "cd Ganesha"
+    sh "ls"
     sh "dotnet restore"
    }
   }
