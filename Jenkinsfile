@@ -24,8 +24,9 @@ pipeline {
   stage('Build') {
     steps {
       dir('Ganesha') {
-      sh 'dotnet publish -c release -r ubuntu.20.04-x64 --self-contained true'
-      sh 'dotnet publish -c release -r  win-x64 --self-contained true'    
+      sh 'dotnet publish --configuration release' //-> run this if run time is installed
+      // sh 'dotnet publish -c release -r ubuntu.20.04-x64 --self-contained true'
+      // sh 'dotnet publish -c release -r  win-x64 --self-contained true'    
       }
     }
   }
@@ -34,7 +35,6 @@ pipeline {
       dir('Ganesha') {
       sh 'sudo systemctl stop ganesha.service'
       sh 'sudo service nginx stop'
-      //sh 'dotnet publish --configuration release' -> run this if run time is installed
       sh 'sudo systemctl start ganesha.service'   
       sh 'sudo service nginx start'    
       }
@@ -43,7 +43,7 @@ pipeline {
 }
 post {
         always {
-            archiveArtifacts artifacts: 'Ganesha/Ganesha/bin/Release/netcoreapp3.1/win-x64/publish/*', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'Ganesha/Ganesha/bin/Release/netcoreapp3.1/*', onlyIfSuccessful: true
         }
     }
 }
